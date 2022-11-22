@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+
 public class Personne {
 
     String nom;
     String prenom;
+
+    ArrayList<Article> realisations = new ArrayList<>();
 
     public Personne(String nom, String prenom) {
         this.nom = nom;
@@ -24,11 +28,19 @@ public class Personne {
         this.prenom = prenom;
     }
 
+    public ArrayList<Article> getRealisations() {
+        return realisations;
+    }
+
+    public void setRealisations(Article realisation) {
+        this.realisations.add(realisation);
+    }
+
     @Override
     public String toString() {
         return "Personne{" +
                 "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
+                ", prenom='" + prenom +
                 '}';
     }
 }
