@@ -1,25 +1,45 @@
 public class Main {
     public static void main(String[] args) {
 
-        Personne p1 = new Personne("Billy", "Smith");
+        // MAGASIN
+        Magasin magasin = new Magasin();
 
-        Personne p2 = new Personne("Mike", "johnson");
+        // ARTISTES
+        Personne billy = new Personne("Smith", "Billy");
 
-        Livre l1 = new Livre("livre1 reference", "livre1 designation", 21.00, 1545454154, p1  );
+        Personne mike = new Personne("Johnson", "Mike");
 
-        Livre l2 = new Livre("livre2 reference", "livre2 designation", 48.00, 1559854154, p1  );
+        // AJOUT DES ARTISTES DANS LE MAGASIN POUR LA RECHERCHE
 
-        Dvd d1 = new Dvd("dvd1 reference", "dvd1 designation", 21.00, 5.55, p2 );
+        magasin.setArtiste(billy);
 
-        p1.setRealisations(l1);
+        magasin.setArtiste(mike);
 
-        p1.setRealisations(l2);
+        // CREATION DES ARTICLES
 
-        p2.setRealisations(d1);
+        Livre l1 = new Livre("livre1 reference", "livre1 designation", 21.00, 1545454154, billy  );
 
-        System.out.println(p1.getRealisations());
+        Livre l2 = new Livre("livre2 reference", "livre2 designation", 48.00, 1559854154, billy  );
 
-        System.out.println(p2.getRealisations());
+        Dvd d1 = new Dvd("dvd1 reference", "dvd1 designation", 21.00, 5.55, mike );
+
+        Dvd d2 = new Dvd("dvd2 reference", "dvd2 designation", 14.95, 3.28, mike );
+
+        // AJOUT DES ARTICLES AUX ARTISTES
+
+        billy.setRealisations(l1);
+
+        billy.setRealisations(l2);
+
+        mike.setRealisations(d1);
+
+        mike.setRealisations(d2);
+
+        // RÉCUPERER LES ARTICLES PAR ARTISTE ( PRÉNOM )
+
+        System.out.println(magasin.getArticlesByArtiste(billy));
+
+        System.out.println(magasin.getArticlesByArtiste(mike));
 
     }
 }
